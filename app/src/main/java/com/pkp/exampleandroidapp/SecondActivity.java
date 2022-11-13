@@ -5,21 +5,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
     Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
 
-        btn = findViewById(R.id.btnMain);
+        btn = findViewById(R.id.btnSecond);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //navigate second Activity
-                Intent i = new Intent(getApplicationContext(), SecondActivity.class);
+                //navigate to Main Activity
+                Intent i= new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
             }
         });
