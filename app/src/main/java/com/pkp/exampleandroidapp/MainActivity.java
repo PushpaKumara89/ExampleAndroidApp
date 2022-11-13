@@ -21,9 +21,16 @@ public class MainActivity extends AppCompatActivity {
         String name = "Pushpa Kumara";
         int age = 33;
 
-        //set data value to intent
-        intent.putExtra("USER_NAME", name);
-        intent.putExtra("USER_AGE",age);
+//        set data value to intent
+//        intent.putExtra("USER_NAME", name);
+//        intent.putExtra("USER_AGE",age);
+
+        //declare bundle object
+        Bundle extras = new Bundle();
+        extras.putString("USER_NAME",name);
+        extras.putInt("USER_AGE", age);
+
+        intent.putExtras(extras);
 
         //set listener to the button
         btn.setOnClickListener(new View.OnClickListener() {
