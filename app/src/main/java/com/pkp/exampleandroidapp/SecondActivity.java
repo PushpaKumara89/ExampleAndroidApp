@@ -5,9 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
     Button btn;
+    TextView userName, userAge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +17,16 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         btn = findViewById(R.id.btnSecond);
+        userName = findViewById(R.id.txtUserName);
+        userAge =findViewById(R.id.txtUserAge);
+
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("USER_NAME");
+        int age = intent.getIntExtra("USER_AGE", 0);
+
+        userName.setText(name);
+        userAge.setText(String.valueOf(age));
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

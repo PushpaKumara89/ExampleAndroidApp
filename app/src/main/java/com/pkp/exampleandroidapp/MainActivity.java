@@ -15,12 +15,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn = findViewById(R.id.btnMain);
+        //create intent Object
+        final Intent intent = new Intent(this, SecondActivity.class);
+
+        String name = "Pushpa Kumara";
+        int age = 33;
+
+        //set data value to intent
+        intent.putExtra("USER_NAME", name);
+        intent.putExtra("USER_AGE",age);
+
+        //set listener to the button
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //navigate second Activity
-                Intent i = new Intent(getApplicationContext(), SecondActivity.class);
-                startActivity(i);
+                startActivity(intent);
             }
         });
     }
