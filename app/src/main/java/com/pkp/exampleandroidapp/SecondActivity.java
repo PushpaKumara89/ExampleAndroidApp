@@ -33,7 +33,6 @@ public class SecondActivity extends AppCompatActivity {
         userName.setText(name);
         userAge.setText(String.valueOf(age));
 
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

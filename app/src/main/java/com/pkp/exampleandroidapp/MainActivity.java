@@ -1,6 +1,7 @@
 package com.pkp.exampleandroidapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,29 +16,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn = findViewById(R.id.btnMain);
-        //create intent Object
-        final Intent intent = new Intent(this, SecondActivity.class);
 
-        String name = "Pushpa Kumara";
-        int age = 33;
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"pradeep@gmail.com"});
+        intent.putExtra(Intent.EXTRA_SUBJECT,"This is our test Subject");
+        intent.putExtra(Intent.EXTRA_TEXT,"This is our test email body");
+        intent.setType("massage/rfc88");
+        Intent chooser = Intent.createChooser(intent, "Send email text app");
 
-//        set data value to intent
-//        intent.putExtra("USER_NAME", name);
-//        intent.putExtra("USER_AGE",age);
-
-        //declare bundle object
-        Bundle extras = new Bundle();
-        extras.putString("USER_NAME",name);
-        extras.putInt("USER_AGE", age);
-
-        intent.putExtras(extras);
 
         //set listener to the button
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //navigate second Activity
-                startActivity(intent);
+                startActivity(chooser);
             }
         });
     }
